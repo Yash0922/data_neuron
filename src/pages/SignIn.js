@@ -45,7 +45,7 @@ const SignIn = () => {
         }}
       >
         <Typography variant="h4" gutterBottom>
-          Sign In
+          Sign Up
         </Typography>
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
           <TextField
@@ -83,21 +83,9 @@ const SignIn = () => {
               '&:hover': { backgroundColor: '#388e3c' },
             }}
           >
-            Sign In
+            Sign Up
           </Button>
-          <Box sx={{ textAlign: 'center' }}>
-            <Typography variant="body2">
-             
-                Forgot password?
-             
-            </Typography>
-            <Typography variant="body2">
-              Don't have an account?{' '}
-              
-                Sign Up
-            
-            </Typography>
-          </Box>
+        
         </Box>
       </Box>
     </Box>

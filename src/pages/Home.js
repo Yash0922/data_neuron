@@ -12,24 +12,24 @@ const Home = () => {
   const [layout, setLayout] = useState([
     {
       id: 'item1',
-      width: '293px',
-      height: '340px',
-      x: 0,
+      width: '30%',
+      height: '50%',
+      x: '15%',
       y: 0,
     },
     {
       id: 'item2',
-      width: '1119px',
-      height: '341px',
-      x: 293,
+      width: '70%',
+      height: '50%',
+      x: '15%',
       y: 0,
     },
     {
       id: 'item3',
-      width: '1423px',
-      height: '380px',
-      x: 0,
-      y: 341,
+      width: '100%',
+      height: '50%',
+      x: '15%',
+      y: '0',
     },
   ]);
   const [name, setName] = useState('');
@@ -74,9 +74,41 @@ const Home = () => {
     fetchData();
   }, []);
 
+  const handleResize = (id, { width, height, x, y }) => {
+    setLayout((prevLayout) =>
+      prevLayout.map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              width: `${(parseInt(width) / layout[0].width) * 100}%`,
+              height: `${(parseInt(height) / layout[0].height) * 100}%`,
+              x: item.id === 'item1' ? '0%' : `${(parseInt(x) / layout[0].width) * 100}%`,
+              y: item.id === 'item1' ? '0%' : `${(parseInt(y) / layout[0].height) * 100}%`,
+            }
+          : item
+      )
+    );
 
+    const currentIndex = layout.findIndex((item) => item.id === id);
 
-  // ... (rest of the component remains the same)
+    if (currentIndex > 0) {
+      const leftItem = layout[currentIndex - 1];
+      const leftItemNewWidth = `${
+        (parseInt(leftItem.width) + (parseInt(x) - parseInt(leftItem.x))) / layout[0].width * 100
+      }%`;
+
+      setLayout((prevLayout) =>
+        prevLayout.map((item) =>
+          item.id === leftItem.id
+            ? {
+                ...item,
+                width: leftItemNewWidth,
+              }
+            : item
+        )
+      );
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -140,8 +172,6 @@ const Home = () => {
     }
   };
 
-
-
   return (
     <div>
       {user && (
@@ -155,7 +185,6 @@ const Home = () => {
               width: layout[0].width,
               height: layout[0].height,
             }}
-            bounds="parent"
           >
             <h3 className="box-title">
               Add Data <span className="box-count">({addCount})</span>
@@ -182,50 +211,47 @@ const Home = () => {
           </Rnd>
 
           <Rnd
-  className="rnd-box"
-  key="item2"
-  default={{
-    x: layout[1].x,
-    y: layout[1].y,
-    width: layout[1].width,
-    height: layout[1].height,
-  }}
-  bounds="parent"
-  onResize={(_, __, ref, ____) => {
-    const width = ref.style.width;
-    const height = ref.style.height;
-    setLayout((prevLayout) =>
-      prevLayout.map((item) =>
-        item.id === "item2" ? { ...item, width, height } : item
-      )
-    );
-  }}
->
-  <h3 className="box-title">
-    Total Counts <span className="box-count">({addCount + updateCount})</span>
-  </h3>
-  <div className="data-list-container">
-    <h4 className="data-list-title">Data List</h4>
-    <div className="data-table-wrapper">
-      <table className="data-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item) => (
-            <tr key={item._id} className="data-row">
-              <td>{item.name}</td>
-              <td>{item.value}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  </div>
-</Rnd>
+            className="rnd-box"
+            key="item2"
+            default={{
+              x: layout[1].x,
+              y: layout[1].y,
+              width: layout[1].width,
+              height: layout[1].height,
+            }}
+            bounds="parent"
+            onResize={(_, __, ref, ____) => {
+              const width = ref.style.width;
+              const height = ref.style.height;
+              handleResize('item2', { width, height });
+            }}
+          >
+            <h3 className="box-title">
+              Total Counts <span className="box-count">({addCount + updateCount})</span>
+            </h3>
+            <div className="data-list-container">
+              <h4 className="data-list-title">Data List</h4>
+              <div className="data-table-wrapper">
+                <table className="data-table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Value</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.map((item) => (
+                      <tr key={item._id} className="data-row">
+                        <td>{item.name}</td>
+                        <td>{item.value}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </Rnd>
+
           <Rnd
             className="rnd-box"
             key="item3"
@@ -236,6 +262,11 @@ const Home = () => {
               height: layout[2].height,
             }}
             bounds="parent"
+            onResize={(_, __, ref, ____) => {
+              const width = ref.style.width;
+              const height = ref.style.height;
+              handleResize('item3', { width, height });
+            }}
           >
             <h3 className="box-title">
               Update Data <span className="box-count">({updateCount})</span>
