@@ -1,17 +1,78 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.home-container {
+  position: relative;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.rnd-box {
+  position: absolute !important;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 4px;
 }
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.data-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.data-list li {
+  margin-bottom: 0.5rem;
+}
+
+.update-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.update-input {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.update-button {
+  background-color: #2196f3;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+
 
 .App-header {
   background-color: #282c34;
@@ -23,7 +84,12 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+@media (max-width: 1024px) {
+  .react-resizable-item {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
 .App-link {
   color: #61dafb;
 }

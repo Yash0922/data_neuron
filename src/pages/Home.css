@@ -1,0 +1,132 @@
+.home-container {
+    position: relative;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .rnd-box {
+    position: relative !important;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+  
+  }
+  .box-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  .form-input:focus {
+    outline: none;
+    border-color: #2196f3;
+  }
+  .form-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  .form-button:hover {
+    background-color: #45a049;
+  }
+  .data-list-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  .data-list-container {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .data-table-wrapper {
+    max-height: calc(100% - 3rem); /* Subtract the height of the title */
+    overflow-y: auto;
+  }
+  .data-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+  
+  .data-table th,
+  .data-table td {
+    padding: 0.75rem;
+    text-align: left;
+    word-wrap: break-word;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .data-table th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+  }
+  .data-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  .data-row:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .update-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .update-input {
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  
+  .update-input:focus {
+    outline: none;
+    border-color: #2196f3;
+  }
+  .update-button {
+    background-color: #2196f3;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  .update-button:hover {
+    background-color: #1976d2;
+  }
