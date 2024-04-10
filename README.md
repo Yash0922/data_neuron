@@ -37,12 +37,11 @@ This project is a React-based web application that implements a responsive, resi
 
 1. **Clone the frontend repository:**
    ```bash
-   git clone https://github.com/<your-username>/<frontend-repo-name>.git
+   git clone https://github.com/Yash0922/data_neuron.git
    ```
 
 2. **Install dependencies:**
    ```bash
-   cd <frontend-repo-name> 
    npm install 
    ```
 
