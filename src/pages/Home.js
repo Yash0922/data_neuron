@@ -140,11 +140,7 @@ const Home = () => {
     }
   };
 
-  const handleEditClick = (item) => {
-    setSelectedItem(item);
-    setUpdatedName(item.name);
-    setUpdatedValue(item.value);
-  };
+
 
   return (
     <div>

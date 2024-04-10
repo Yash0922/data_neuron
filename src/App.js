@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './component/Navbar';
 import SignIn from './pages/SignIn';
 import Login from './pages/Login';
 import Home from './pages/Home';
-import { isLoggedIn, getUser } from './utils/auth';
-import { ToastContainer, toast } from 'react-toastify';
+import { isLoggedIn } from './utils/auth';
+import { ToastContainer,  } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const PrivateRoute = ({ children }) => {
  
